@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- For ICON-->
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" nomodule></script>
+      
+
+    <title>CDM Fundom Sign Up</title>
+    <link rel="stylesheet" href="signUp.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Create a New Account</h2>
+        <form action="#" method="post" class="signUp">
+            <input type="text" required placeholder="Enter First Name" id="Fn">
+            <input type="text" required placeholder="Enter Last Name" id="Ln">
+            
+            <div class="gender">
+                <label id="genLabel">Gender: </label>
+                <label>
+                    Male
+                    <input type="radio" name="gen" required id="email" value="male">
+                    Female
+                    <input type="radio" name="gen" required id="email" value="female">
+                </label>
+            </div>
+
+            <div class="bday">
+                <label id="bdayLabel">Birthday: </label>
+                <input type="date" required id="Dob">
+            </div>
+
+            <input type="text" required placeholder="Enter Username" id="Un">
+            <input type="password" required placeholder="Enter Password" id="psw">
+            <input type="password" required placeholder="Enter Confirm Password" id="cpsw">
+            
+            <a href="loginForm.html" class="backLogin">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+                Back to Login
+            </a>
+
+            <button type="submit" class="signUpBTN">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>

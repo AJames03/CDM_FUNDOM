@@ -117,6 +117,29 @@ body{
         left: 25%;
         transform: translate(-50%, -50%);
     }
+    #box{
+        width: 100vw;
+        height: 100vh;
+        background-color: #efcc00;
+    }
+    #circle{
+        width: 2000px;
+        height: 2000px;
+        border-radius: 100%;
+        background-color: white;
+        position: fixed;
+        top: 15%;
+        left: -35%;
+    }
+    #imgICON{
+        position: absolute;
+        width: 10vw;
+        top: 10%;
+        left: 48%;
+        transform: translate(-50%, -50%);
+        transform: scaleY(-1);
+        transform: scaleX(-1);
+    }
 }
 
 /* Tablet Media Query*/
@@ -234,6 +257,29 @@ body{
         top: 20%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+    #box{
+        width: 100vw;
+        height: 100vh;
+        background-color: #efcc00;
+    }
+    #circle{
+        width: 1000px;
+        height: 1000px;
+        border-radius: 100%;
+        background-color: white;
+        position: fixed;
+        top: 50%;
+        left: -14%;
+    }
+    #imgICON{
+        position: absolute;
+        width: 10vw;
+        top: 50%;
+        left: 18%;
+        transform: translate(-50%, -50%);
+        transform: scaleY(-1);
+        transform: scaleX(-1);
     }
 }
 
@@ -353,5 +399,29 @@ body{
         top: 25%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+    #box{
+        width: 100vw;
+        height: 100vh;
+        background-color: #efcc00;
+    }
+    #circle{
+        width: 1000px;
+        height: 1000px;
+        border-radius: 100%;
+        background-color: white;
+        position: fixed;
+        top: 50%;
+        left: -100%;
+    }
+    #imgICON{
+        position: absolute;
+        width: 15vw;
+        top: 30%;
+        left: 5%;
+        transform: translate(-50%, -50%);
+        transform: scaleY(-1);
+        transform: scaleX(-1);
+        z-index: 1;
     }
 }

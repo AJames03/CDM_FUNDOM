@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- For ICON-->
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" nomodule></script>
+    <link rel="icon" type="image/x-icon" href="./images/Smile Mail.png">
+      
+
+    <title>CDM Fundom Sign Up</title>
+    <link rel="stylesheet" href="signUp.css">
+
+    <script>
+        function validateForm() {
+            const password = document.getElementById("psw").value;
+            const confirmPassword = document.getElementById("cpsw").value;
+
+            const passwordRegex = /^[A-Za-z\d@$!%*?.-_#^~,&]{8,16}$/;
+
+            if (!passwordRegex.test(password)) {
+                alert("Password must be 8-16 characters long and contain at least one special character.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <h2>Create a New Account</h2>
+        <form action="database.php" method="post" class="signUp" onsubmit="return validateForm();">
+            <input type="text" required placeholder="Enter First Name" id="Fn" name="FN">
+            <input type="text" required placeholder="Enter Last Name" id="Ln" name="LN">
+            
+            <div class="gender">
+                <label id="genLabel">Gender: </label>
+                <label>
+                    Male
+                    <input type="radio" name="gen" required id="email" value="male">
+                    Female
+                    <input type="radio" name="gen" required id="email" value="female">
+                </label>
+            </div>
+
+            <div class="bday">
+                <label id="bdayLabel">Birthday: </label>
+                <input type="date" required id="Dob" name="bday">
+            </div>
+
+            <input type="text" required placeholder="Enter Username" id="Un" name="UN">
+            <input type="password" required placeholder="Enter Password" id="psw" name="psw"
+                pattern=".{8,16}"
+            >
+            <input type="password" required placeholder="Enter Confirm Password" id="cpsw" name="cpsw">
+            
+            <a href="loginForm.html" class="backLogin">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+                Back to Login
+            </a>
+
+            <button type="submit" class="signUpBTN">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>

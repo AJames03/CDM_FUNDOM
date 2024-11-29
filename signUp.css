@@ -1,0 +1,161 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 70vh;
+        width: 40vw;
+        background-color: #e0ffff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px black;
+        padding: 10px;
+        gap: 20px;
+    }
+    h2{
+        font-family: 'Poppins-Bold', sans-serif;
+        font-size: 30px;
+        padding: 10px;
+        margin: 0;
+        border-bottom: solid 1px #808080;
+        width: 80%;
+        text-align: center;
+    }
+    .signUp{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+    #Un, #psw, #cpsw{
+        grid-column: 1 / span 2;
+    }
+    .bday{
+        grid-row: 2 / span 1;
+        grid-column: 1 / span 2;
+    }
+    #Fn, #Ln, #Un, #psw, #cpsw, #Dob, .gender, .bday{
+        font-size: 14px;
+        outline: none;
+        text-decoration: none;
+        padding: 5px;
+        border: none;
+    }
+    .gender{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+    .gender > #genLabel, #bdayLabel{
+        font-weight: bold;
+        font-size: 16px;
+        font-family: 'Poppins-Bold', sans-serif;
+    }
+    .signUpBTN{
+        height: 5vh;
+        border: none;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        background-color: #4400ff;
+        border-radius: 5px;
+        grid-column: 1 / span 2;
+        grid-row: 12 / span 1;
+        align-items: center;
+    }
+    .backLogin{
+        text-decoration: none;
+        color: #4400ff;
+        font-size: 12px;
+        font-family: 'Roboto', sans-serif;
+        grid-column: 1 / span 2;
+        grid-row: 13 / span 1;
+        text-align: center;
+    }
+}
+
+/* For Table */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 60vh;
+        width: 60vw;
+        background-color: #e0ffff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px black;
+        padding: 10px;
+        gap: 20px;
+    }
+    h2{
+        font-family: 'Poppins-Bold', sans-serif;
+        font-size: 30px;
+        padding: 10px;
+        margin: 0;
+        border-bottom: solid 1px #808080;
+        width: 80%;
+        text-align: center;
+    }
+    .signUp{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+    #Un, #psw, #cpsw{
+        grid-column: 1 / span 2;
+    }
+    .bday{
+        grid-row: 2 / span 1;
+        grid-column: 1 / span 2;
+    }
+    #Fn, #Ln, #Un, #psw, #cpsw, #Dob, .gender, .bday{
+        font-size: 14px;
+        outline: none;
+        text-decoration: none;
+        padding: 5px;
+        border: none;
+    }
+    .gender{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+    .gender > #genLabel, #bdayLabel{
+        font-weight: bold;
+        font-size: 16px;
+        font-family: 'Poppins-Bold', sans-serif;
+    }
+    .signUpBTN{
+        height: 5vh;
+        border: none;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        background-color: #4400ff;
+        border-radius: 5px;
+        grid-column: 1 / span 2;
+        grid-row: 12 / span 1;
+        align-items: center;
+    }
+    .backLogin{
+        text-decoration: none;
+        color: #4400ff;
+        font-size: 12px;
+        font-family: 'Roboto', sans-serif;
+        grid-column: 1 / span 2;
+        grid-row: 13 / span 1;
+        text-align: center;
+    }
+}

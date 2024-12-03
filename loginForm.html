@@ -22,12 +22,14 @@
         <img src="./images/Smile Mail.png" id="imgICON">
         <img src="./images/FDpng.png" id="imgLogo">
         <div id="loginForm">
-            <form action="#" method="post" class="login" onsubmit="event.preventDefault(); validateInput();">
-                <input type="text" id="username" required>
+            <form action="login.php" method="POST" class="login">
+                <input type="text" name="username" id="username" required>
                 <label class="labelUsername">Enter your username</label>
-                <input type="password" id="password" required>
+                
+                <input type="password" name="password" id="password" required>
                 <label class="labelPassword">Enter your password</label>
                 <button type="submit" class="submitBTN">Login</button>
+                
                 <a href="#" class="forgotPassword">Forgot Password?</a>
             </form>
             <a href="signUp.html" class="createAccount">Create an Account</a>

@@ -1,0 +1,277 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #dbd7d2;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+
+    /* For Scroll */
+    ::-webkit-scrollbar{
+        width: 10px;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-track{
+        background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb{
+        background-color: #4169e1;
+        border-radius: 10px;
+    }
+    
+    /* For Header Profile */
+    .profileName{
+        display: flex;
+        flex-direction: rows;
+        align-items: center;
+        justify-content: right;
+        gap: 10px;
+        padding: 10px;
+        margin: 20px;
+        background-color: white;
+        width: 1060px;
+        height: 30px;
+        position: absolute;
+        right: 0;
+        color: black;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    /* For Content Container */
+    .container{
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+    }
+    .navigation{
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        background-color: white;
+        width: 16vw;
+        font-family: 'Roboto', sans-serif;
+    }
+    .FDIcon{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    #imgICON{
+        width: 30px;
+        height: 30px;
+    }
+    nav{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 5px;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    ion-icon{
+        font-size: 20px;
+        top: 5px;
+        position: relative;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        background-color: #f5f5f5;
+        width: 100vw;
+        text-align: left;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    a:hover{
+        background-color: #555555;
+        color: white;
+    }
+    h2{
+        font-family: 'Poppins-Bold', sans-serif;
+    }
+
+    /* This is for Newsfeed */
+    .newsfeed_container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+        gap: 20px;
+        width: 50vw;
+        height: 78vh;
+        padding: 20px;
+        overflow-y: scroll;
+        background-color: white;
+        position: relative;
+        top: 70px;  
+    }
+
+    /* This is for community */
+    #community_Name{
+        width: 40vw;
+        border-bottom: 2px solid #648c11;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+    .community_content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+        gap: 20px;
+        width: 50vw;
+        height: 81vh;
+        padding: 10px;
+        overflow-y: scroll;
+        background-color: white;
+        position: relative;
+        top: 70px;
+    }
+
+    /* This is for add community */
+    .add_community{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        gap: 20px;
+        width: 30vw;
+        height: 78vh;
+        padding: 20px;
+        background-color: white;
+        position: relative;
+        top: 70px;
+    }
+    .fillup_new_community{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+    .label_create_community{
+        position: absolute;
+        font-size: 12px;
+        transition: 0.2s ease;
+        top: 100px;
+        right: 220px;
+        transition: 1s ease;
+        color: #808080;
+        transform-origin: top left;
+        background-color: white;
+        padding-right: 10px;
+        padding-left: 10px;
+        font-family: 'Poppins-Regular', sans-serif;
+    }
+    input{
+        border: 1px solid #808080;
+        border-radius: 5px;
+        outline: none;
+        align-items: center;
+        width: 26vw;
+        font-size: 14px;
+        padding: 10px;
+    }
+    #communityBTN{
+        background-color: #648c11;
+        color: white;
+    }
+    #communityBTN:hover{
+        box-shadow: 0px 0px 10px 0px #a9a9a9;
+    }
+
+    /* This is for Join Community */
+    .community_list_container{
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        font-family: 'Poppins', sans-serif;
+    }
+    .community_list{
+        display: grid;
+        grid-template-columns: 10fr 1fr;
+        align-items: center;
+        width: 40vw;
+        height: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f0f8ff;
+        box-shadow: 0px 0px 10px 0px #a9a9a9;
+    }
+    .community{
+        grid-column: 1 / span 1;
+    }
+    .join_button{
+        position: relative;
+        background-color: white;
+        border-radius: 100px;
+        border: none;
+        padding: 10px;
+        width: 100px;
+        top: -8px;
+        box-shadow: 0px 0px 3px 0px black;
+        font-family: 'Poppins', sans-serif;
+    }
+    .join_button:hover{
+        background-color: #648c11;
+        color: white;
+        box-shadow: 0px 0px 3px 0px white;
+    }
+
+    /* This is for Profile Page */
+    .profileContainer{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        margin: 20px;
+        gap: 20px;
+        width: 90vw;
+        height: 88vh;
+        padding: 20px;
+        background-color: transparent;
+    
+    }
+    .profileINFO{
+        width: 100%;
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .profileNameLabel{
+        font-family: 'Poppins', sans-serif;
+        font-size: 30px;
+    }
+    .profile-picture{
+        width: 20%;
+        border-radius: 100%;
+        box-shadow: 0px 0px 3px 0px black;
+        border: 5px solid #f0f8ff;
+    }
+    /* This is for Logout */
+    .logout{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 15vw;
+        height: 5vh;
+        position: relative;
+        left: 5px;
+        top: 320px;
+        border-radius: 100px;
+        border: none;
+    }
+    .logout:hover{
+        background-color: #555555;
+        color: white; 
+    }
+}

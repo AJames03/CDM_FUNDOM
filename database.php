@@ -11,4 +11,6 @@
 
     $db = $client->selectDatabase('Fundom');
     $collection = $db->selectCollection('users');
+
+    $bucket = $db->selectGridFSBucket();
 ?>

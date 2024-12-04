@@ -1,11 +1,28 @@
 <?php
 session_start();
-if (!isset($_SESSION['name'])) {
+if (!isset($_SESSION['name']) || !isset($_SESSION['lastname'])) {
     header("Location: loginForm.html");
     exit();
 }
 
 $name = $_SESSION['name'];
+$lname = $_SESSION['lastname'];
+    // THIS IS FOR UPPER PROFILE PICTURE 
+    require 'database.php';
+
+    $userdata = $collection->findOne(['First Name' => $name]);
+
+    // This is for display the profile picture
+
+    if (isset($userdata['Profile Picture']) && $userdata['Profile Picture'] instanceof MongoDB\BSON\Binary) {
+        // This is for displaying the profile picture
+        $image = $userdata['Profile Picture']->getData(); // Get the image data as binary data
+        $imageBase64 = base64_encode($image);
+    
+        // Create an image tag to display the image
+    } else {
+        echo "No profile picture available.";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +41,9 @@ $name = $_SESSION['name'];
     <div class="profileName">
         <label class="nameLabel">
             <?php echo $name ?>
+            <?php echo $lname ?>
         </label>
-        <ion-icon name="person-circle-outline"></ion-icon>
+        <img src="data:image/jpeg;base64,<?php echo $imageBase64; ?>" class="small-profile-picture">
     </div>
 
     <div class="container">
@@ -39,17 +57,17 @@ $name = $_SESSION['name'];
 
             <!-- Navigation Bar -->
             <nav>
-            <a href="newsfeed.php">
+            <a href="newsfeed.php" class="navLink">
                     <ion-icon name="home-outline"></ion-icon> &nbsp;
                     Home
                 </a>
                 
-                <a href="community.php">
+                <a href="community.php" class="navLink">
                     <ion-icon name="people-outline"></ion-icon> &nbsp;
                     Join Community
                 </a>
                 
-                <a href="profile.php">
+                <a href="profile.php" class="navLink">
                     <ion-icon name="person-circle-outline"></ion-icon> &nbsp;
                     Profile
                 </a>

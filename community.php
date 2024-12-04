@@ -1,11 +1,12 @@
 <?php
     session_start();
-    if (!isset($_SESSION['name'])) {
-    header("Location: loginForm.html");
-    exit();
+    if (!isset($_SESSION['name']) || !isset($_SESSION['lastname'])) {
+        header("Location: loginForm.html");
+        exit();
     }
-
+    
     $name = $_SESSION['name'];
+    $lname = $_SESSION['lastname'];
 
     require "vendor/autoload.php";
     use MongoDB\Client;
@@ -16,9 +17,8 @@
     $db = $client->Fundom;
     $collection = $db->Community;
     
-    $name = $_SESSION['name'];
-    
     // Find all communities
+
     $communities = $collection->find();
 
     // Join the Community
@@ -41,6 +41,23 @@
             }
         }
     }
+
+    // THIS IS FOR UPPER PROFILE PICTURE 
+    require 'database.php';
+
+    $userdata = $collection->findOne(['First Name' => $name]);
+
+    // This is for display the profile picture
+
+    if (isset($userdata['Profile Picture']) && $userdata['Profile Picture'] instanceof MongoDB\BSON\Binary) {
+        // This is for displaying the profile picture
+        $image = $userdata['Profile Picture']->getData(); // Get the image data as binary data
+        $imageBase64 = base64_encode($image);
+    
+        // Create an image tag to display the image
+    } else {
+        echo "No profile picture available.";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -59,8 +76,9 @@
     <div class="profileName">
         <label class="nameLabel">
             <?php echo $name ?>
+            <?php echo $lname ?>
         </label>
-        <ion-icon name="person-circle-outline"></ion-icon>
+        <img src="data:image/jpeg;base64,<?php echo $imageBase64; ?>" class="small-profile-picture">
     </div>
     <div class="container">
         <!-- Navigation Bar and Icon -->
@@ -70,17 +88,17 @@
                 <h2>FUNDOM</h2>
             </div>
             <nav>
-                <a href="newsfeed.php">
+                <a href="newsfeed.php" class="navLink">
                     <ion-icon name="home-outline"></ion-icon> &nbsp;
                     Home
                 </a>
                 
-                <a href="community.php">
+                <a href="community.php" class="navLink">
                     <ion-icon name="people-outline"></ion-icon> &nbsp;
                     Join Community
                 </a>
                 
-                <a href="profile.php">
+                <a href="profile.php" class="navLink">
                     <ion-icon name="person-circle-outline"></ion-icon> &nbsp;
                     Profile
                 </a>

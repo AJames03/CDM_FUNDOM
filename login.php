@@ -19,7 +19,8 @@
 
             // Compare the input password with the stored hashed password
             if ($password === $decryptedPassword){
-                $_SESSION['name'] = $user['First Name']. " ". $user['Last Name'];
+                $_SESSION['name'] = $user['First Name'];
+                $_SESSION['lastname'] = $user['Last Name'];
                 var_dump($_SESSION['name']);
                 header("Location: newsfeed.php");
                 exit();

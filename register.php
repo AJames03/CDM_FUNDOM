@@ -15,7 +15,9 @@
     $key = ENCRYPTION_KEY;
     $encryptPass = encryptdata($pass, $key);
 
-    $profileImg = "./images/default_profile.png";
+    // This is for Image Profile
+    $defaultImagePath = './images/default_profile.png';
+    $imageData = file_get_contents($defaultImagePath);
 
     $insertResult = $collection->insertOne([
         'First Name' => $firstName,
@@ -24,7 +26,7 @@
         'Birthday' => $bday,
         'Username' => $user,
         'Password' => $encryptPass,
-        'Profile Picture' => $profileImg
+        'Profile Picture' => new MongoDB\BSON\Binary($imageData, MongoDB\BSON\BINARY::TYPE_GENERIC)
     ]);
     
     $insertID = $insertResult->getInsertedId();

@@ -19,10 +19,15 @@
 
             // Compare the input password with the stored hashed password
             if ($password === $decryptedPassword){
+                
+                // Set the session variables
                 $_SESSION['name'] = $user['First Name'];
                 $_SESSION['lastname'] = $user['Last Name'];
+                $_SESSION['id'] = $user['_id'];
+                $_SESSION['username'] = $user['Username'];
+
                 var_dump($_SESSION['name']);
-                header("Location: newsfeed.php");
+                header("Location: Profile.php");
                 exit();
             } else {
                 echo "Invalid password.";

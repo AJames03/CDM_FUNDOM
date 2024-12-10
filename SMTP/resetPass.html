@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Fpass.css">
+
+    <!-- For Fonts Style-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- For ICON-->
+    <link rel="icon" type="image/x-icon" href="../images/Smile Mail.png">
+
+    <link rel="stylesheet" href="resetPass.css?v=<?php echo time(); ?>">
+
+    <title>Reset Password</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Reset Password</h2>
+        <p>Please enter your username and email address to receive a password reset link.</p>
+        <form id="forgot-password-form" action="resetFunction.php" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">New Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter new password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password" required>
+                <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
+            </div>
+            <button type="submit">Send Reset Link</button>
+        </form>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const cpassField = document.getElementById('confirm-password');
+            const showPasswordCheckbox = document.getElementById('showPassword');
+            
+            // Toggle the input type based on the checkbox state
+            if (showPasswordCheckbox.checked) {
+                passwordField.type = 'text';
+                cpassField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+                cpassField.type = 'password';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -12,13 +12,27 @@
     
     $collection_name = $_POST['community_name'];
 
-    $creator = $_SESSION['name'];
+    $fname = $_SESSION['name'];
+    $lname = $_SESSION['lastname'];
+    $creator = $fname . " " . $lname;
+    $members = $fname . " " . $lname;
+    $id = $_SESSION['id'];
 
     $collection->insertOne([
         'Community Name' => $collection_name,
-        'Admin' => $creator,
-        'Members' => [$creator],
-        'Posts' => [],
+        'Admin' => [
+            [
+                'id' => $id,
+                'name' => $creator,
+            ]
+        ],
+        'Members' => [
+            [
+                'id' => $id,
+                'name' => $members,
+            ]
+        ],
+        'Chat' => []
     ]);
 
     header("Location: community.php");

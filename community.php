@@ -1,12 +1,13 @@
 <?php
     session_start();
-    if (!isset($_SESSION['name']) || !isset($_SESSION['lastname'])) {
-        header("Location: loginForm.html");
+    if (!isset($_SESSION['name']) || !isset($_SESSION['lastname']) || !isset($_SESSION['id'])) {
+        header("Location: profile.php");
         exit();
     }
     
     $name = $_SESSION['name'];
     $lname = $_SESSION['lastname'];
+    $ID = $_SESSION['id'];
 
     require "vendor/autoload.php";
     use MongoDB\Client;
@@ -36,7 +37,11 @@
             if (!in_array($user, (array)$existingCommunity['Members'])) {
                 $collection->updateOne(
                     ['Community Name' => $collection_name], // Find community
-                    ['$push' => ['Members' => $user]]       // Add user to Members array
+                    ['$push' => [
+                        'Members' => [
+                            'id' => $ID,
+                            'name' => $user
+                        ]]]       // Add user to Members array
                 );
             }
         }
@@ -78,7 +83,9 @@
             <?php echo $name ?>
             <?php echo $lname ?>
         </label>
-        <img src="data:image/jpeg;base64,<?php echo $imageBase64; ?>" class="small-profile-picture">
+        <label class="Small-Profile-Picture">
+            <img src="data:image/jpeg;base64,<?php echo $imageBase64; ?>" class="small-profile-picture">
+        </label>
     </div>
     <div class="container">
         <!-- Navigation Bar and Icon -->
@@ -88,10 +95,6 @@
                 <h2>FUNDOM</h2>
             </div>
             <nav>
-                <a href="newsfeed.php" class="navLink">
-                    <ion-icon name="home-outline"></ion-icon> &nbsp;
-                    Home
-                </a>
                 
                 <a href="community.php" class="navLink">
                     <ion-icon name="people-outline"></ion-icon> &nbsp;
@@ -101,6 +104,20 @@
                 <a href="profile.php" class="navLink">
                     <ion-icon name="person-circle-outline"></ion-icon> &nbsp;
                     Profile
+                </a>
+                <a href="communityChat.php" class="navLink">
+                    <ion-icon name="chatbubbles-outline"></ion-icon> &nbsp;
+                    Community Chat
+                </a>
+
+                <a href="changePassMain.php" class="navLink">
+                    <ion-icon name="settings-outline"></ion-icon> &nbsp;
+                    Change Password
+                </a>
+
+                <a href="./about/about.html" class="navLink">
+                <ion-icon name="information-circle-outline"></ion-icon> &nbsp;
+                    About
                 </a>
             </nav>
             <form action="logout.php" method="POST">

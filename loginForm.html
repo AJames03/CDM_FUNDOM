@@ -12,8 +12,11 @@
     <!-- For ICON-->
     <link rel="icon" type="image/x-icon" href="./images/Smile Mail.png">
 
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" nomodule></script>
+
     <title>CDM Fundom Login</title>
-    <link rel="stylesheet" href="loginForm.css">
+    <link rel="stylesheet" href="loginForm.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <div class="container">
@@ -29,13 +32,31 @@
                 <input type="password" name="password" id="password" required>
                 <label class="labelPassword">Enter your password</label>
                 <button type="submit" class="submitBTN">Login</button>
+                <button type="button" class="eye-btn" onclick="togglePassword()">
+                    <ion-icon name="eye-outline" id="icon_eye"></ion-icon>
+                </button>
                 
-                <a href="#" class="forgotPassword">Forgot Password?</a>
+                <a href="./SMTP/forgetPass.php" class="forgotPassword">Forgot Password?</a>
             </form>
             <a href="signUp.html" class="createAccount">Create an Account</a>
         </div>
     </div>
 
     <script src="submit.js"></script>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const iconEye = document.getElementById('icon_eye');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                iconEye.name = "eye-off-outline";
+            } else {
+                passwordField.type = 'password';
+                iconEye.name = "eye-outline";
+            }
+        }
+    </script>
 </body>
 </html>

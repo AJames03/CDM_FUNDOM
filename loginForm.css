@@ -5,6 +5,15 @@ body{
 /* Desktop Media Query */
 
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .eye-btn{
+        position: absolute;
+        top: 105px;
+        right: 125px;
+        z-index: 1;
+        background: none;
+        border: none;
+        font-size: 20px;
+    }
     #loginForm{
         display: flex;
         flex-direction: column;

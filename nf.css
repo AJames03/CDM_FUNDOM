@@ -10,13 +10,14 @@ body{
     ::-webkit-scrollbar{
         width: 10px;
         height: 10px;
+        overflow: hidden;
     }
     ::-webkit-scrollbar-track{
-        background: #f1f1f1;
+        overflow: hidden;
     }
     ::-webkit-scrollbar-thumb{
         background-color: #4169e1;
-        border-radius: 10px;
+        border-radius: 50px;
     }
     
     /* For Header Profile */
@@ -36,9 +37,19 @@ body{
         color: black;
         font-family: 'Poppins', sans-serif;
     }
+    .Small-Profile-Picture{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%; 
+        overflow: hidden; 
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        background-color: #d3d3d3;
+    }
     .small-profile-picture{
-        width: 50px;
-        clip-path: circle(30% at 50% 50%);
+        width: 100%;
+        height: 100%;
         object-fit: cover;
     }
     
@@ -99,6 +110,10 @@ body{
     }
 
     /* This is for Newsfeed */
+    .content_container{
+        display: flex;
+        flex-direction: rows;
+    }
     .newsfeed_container{
         display: flex;
         flex-direction: column;
@@ -112,6 +127,74 @@ body{
         background-color: white;
         position: relative;
         top: 70px;  
+    }
+    .your_post{
+        width: 325px;
+        height: 81vh;
+        position: relative;
+        top: 90px;
+        background-color: white;
+        padding: 10px;
+        font-family: 'Poppins-Regular', sans-serif;
+    }
+    #postForm{
+        display: grid;
+        grid-template-columns: 50px 3fr;
+        grid-template-rows: 1.5fr 2fr 5fr;
+    }
+    .postContainer{
+        width: 100%;
+        height: 100%;
+        background-color: #e0ffff ;
+        border-radius: 10px;
+    }
+    .postProfilePicture{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%; 
+        overflow: hidden; 
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        background-color: #d3d3d3;
+    }
+    #name_of_user{
+        font-size: 22px;
+    }
+    #postTXT{
+        font-size: 14px;
+        padding: 10px;
+        width: 22vw;
+        height: 50px;
+        resize: none;
+        outline: none;
+    }
+    .inputContainer{
+        grid-row: 3;
+    }
+    #image_BTN{
+        display: flex;
+        margin-top: 20px;   
+        gap: 10px;
+        background-color: #e7feff ;
+        font-size: 16px;
+        width: 21.5vw;
+        border-radius: 20px;
+        padding: 10px;
+        padding-left: 20px;
+        box-shadow: 2px 3px 5px 0px #a9a9a9;
+    }
+    #image_Icon{
+        position: relative;
+        top: -1px;
+    }
+    #image_BTN:hover{
+        background-color: #808080;
+        color: white;
+    }
+
+    #post_images, #post_documents{
+        display: none;
     }
 
     /* This is for community */
@@ -232,22 +315,21 @@ body{
     /* This is for Profile Page */
     .profileContainer{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 2fr 4fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
         margin: 20px;
         gap: 20px;
-        width: 90vw;
+        width: 80vw;
         height: 88vh;
         padding: 20px;
         background-color: transparent;
     
     }
     .profileINFO{
-        width: 100%;
         background-color: white;
         border-radius: 10px;
         padding: 20px;
-        grid-column: 1 / span 2;
+        grid-column: 1 / span 3;
         grid-row: 1 / span 1;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -256,7 +338,7 @@ body{
         font-family: 'Poppins', sans-serif;
         font-size: 30px;
         position: relative;
-        left: -180px;
+        left: -320px;
     }
     .dpIMG{
         width: 150px;
@@ -266,7 +348,7 @@ body{
         display: flex;
         justify-content: center; 
         align-items: center; 
-        background-color: black;
+        background-color: #d3d3d3;
     }
     .profile-picture{
         width: 100%;
@@ -285,6 +367,47 @@ body{
         left: 100px;
         top: -30px;
     }
+    .yourCommunity{
+        background-color: white;
+        border-radius: 10px;
+        grid-column: 1 / span 3;
+        grid-row: 2 / span 5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    .community_information{
+        overflow-y: scroll;
+        overflow: auto;
+        width: 100%;
+        height: 100%;
+    }
+    .table_list{
+        width: 100%;
+        padding: 10px;
+        background-color: #f0f8ff;
+        box-shadow: 0px 0px 10px 0px #a9a9a9;
+        text-align: center;
+    }
+    tr{
+        border: 1px solid #808080;
+        justify-content: space-between;
+        gap: 50px;;
+    }
+    th{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    td{
+        font-family: 'Poppins-regular', sans-serif;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-bottom: 1px solid #808080;
+    }
+    #deleteButton{
+        background: none;
+        border: none;
+    }
 
     /* This is for Logout */
     .logout{
@@ -295,12 +418,196 @@ body{
         height: 5vh;
         position: relative;
         left: 5px;
-        top: 320px;
+        top: 230px;
         border-radius: 100px;
         border: none;
     }
     .logout:hover{
         background-color: #555555;
         color: white; 
+    }
+
+    /* Community Chat Container */
+
+    .communitychat_Container{
+        margin: 20px;
+        margin-top: 90px;
+        width: 89vw;
+        height: 80vh;
+        background-color: #e5e4e2;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .chatlist{
+        background-color: white;
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    #Community-Chat-Text{
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+    }
+    .chatTAB{
+        overflow-y: scroll;
+        padding: 10px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .tabLinks{
+        outline: none;
+        border: none;
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        gap: 20px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .tabLinks:hover{
+        background-color: #c9c0bb;
+    }
+    #Community-Name-Chat{
+        font-family: 'Poppins-Regular', sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    /* Message Area */
+    .chatarea{
+        background-color: #e5e4e2 ;
+        grid-column: 2 / span 2;
+        grid-row: 1 / span 2;
+        display: flex;
+        flex-direction: column;
+    }
+    .chatContent{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        overflow-y: scroll;
+        background-color: #e5e4e2;
+        height: 68vh;
+        font-family: 'Poppins-Regular', sans-serif;
+    }
+    /* Conversation My-Message and Other-Message */
+    #message-Container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .my-message{
+        text-align: right;
+        text-spacing-trim: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+    }
+    .my-message #Text-Message{
+        display: inline-block;
+        background-color: #00ff7f;
+        max-width: 30%;
+        height: auto;      
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        padding: 10px;
+        border-radius: 10px;
+        text-overflow: ellipsis;
+    }
+
+    .other-message{
+        text-align: left;
+        text-spacing-trim: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .other-message #Text-Message{
+        display: inline-block;
+        background-color: #c9c0bb;
+        max-width: 30%;
+        height: auto;      
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        padding: 10px;
+        border-radius: 10px;
+        text-overflow: ellipsis;
+    }
+    #users_Name{
+        font-family: 'Poppins-Regular', sans-serif;
+        font-weight: bold;
+        font-size: 12px;
+        text-spacing-trim: none;
+    }
+
+    .chat{
+        display: flex;
+        flex-direction: column;
+        gap: 10px; 
+        position: absolute;
+        bottom: 10px;
+        padding: 10px;
+        width: 58%;
+        background-color: #bebebe;
+    }
+    #messageCHAT{
+        display: flex;
+        flex-direction: row;
+        gap: 10px; 
+        position: absolute;
+        bottom: 40px;
+        padding: 10px;
+        width: 58.2%;
+        background-color: #bebebe;
+        box-shadow: 0px -7px 10px 0px #a9a9a9;
+        left: 530px;
+    }
+    #paperclip{
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+    }
+    .text_AREA{
+        background-color: #f4f0ec ;
+        width: 48vw;
+        padding: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        justify-content: center;
+        border-radius: 20px;
+        border: 1px solid black;
+    }
+    #textArea{
+        width: 48vw;
+        height: 20px;
+        font-size: 14px;
+        outline: none;
+        resize: none;
+        border: none;
+        background-color: transparent;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+    #sendBTN{
+        outline: none;
+        background-color: transparent;
+        border: none;
+        padding: 0px;
+        font-size: 25px;
+        color: blue;
+        position: relative;
+        left: 10px;
     }
 }
